@@ -24,27 +24,27 @@ public class StepDefination {
 
 	WebDriver driver;
 	List<WebElement> webelements;
-	private Hook hook;
+//	private Hook hook;
+//	
+//	public StepDefination(Hook hook)
+//	{
+//		this.hook = hook;
+//	}
 	
-	public StepDefination(Hook hook)
+	@Before
+	public void InitializeTest()
 	{
-		this.hook = hook;
+		System.setProperty("webdriver.chrome.driver", "C:\\selenium\\chromedriver_win32\\chromedriver.exe");
+	    driver = new ChromeDriver();
+        
 	}
 	
-//	@Before
-//	public void InitializeTest()
-//	{
-//		System.setProperty("webdriver.chrome.driver", "C:\\selenium\\chromedriver_win32\\chromedriver.exe");
-//	    driver = new ChromeDriver();
-//        
-//	}
-//	
-//	@After
-//	public void TearDownTest()
-//	{
-//		driver.close();
-//		driver.quit();
-//	}
+	@After
+	public void TearDownTest()
+	{
+		driver.close();
+		driver.quit();
+	}
 	
 
     @Given("^User on landing page$")
